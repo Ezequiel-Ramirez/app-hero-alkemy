@@ -12,9 +12,9 @@ const CardHero = ({hero}) => {
     const isAdded = user?.heroesAdded?.includes(hero.id);
     return (
         <div className="card">
-            <img src={hero.imageUrl} alt="{hero.title}" className="card-img-top" style={imgStyles}/>
+            <img src={hero.image.url} alt={hero.name} className="card-img-top" style={imgStyles}/>
             <div className="card-body">
-            <h4>{hero.title}</h4>
+            <h4>{hero.name}</h4>
             {
                 user?.id &&
             <button onClick={()=> toggleAddedHeroToUser(hero.id)} className={`btn ${isAdded ? "btn-outline-primary" : "btn-success"}`} >{`${isAdded ? "Agregado" : "Agregar"} `}</button>
