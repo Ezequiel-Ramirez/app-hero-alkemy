@@ -8,10 +8,11 @@ const CardHero = ({hero}) => {
         height: "260px",
         objectFit: "cover",
     }
-
+console.log("card")
     const isAdded = user?.heroesAdded?.includes(hero.id);
     return (
-        <div className="card">
+    
+        <div className="card col-md-3">
             <img src={hero.image.url} alt={hero.name} className="card-img-top" style={imgStyles}/>
             <div className="card-body">
             <h4>{hero.name}</h4>
