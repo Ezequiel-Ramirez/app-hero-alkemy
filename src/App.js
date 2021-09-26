@@ -1,3 +1,4 @@
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Itemlistcontainer from "./components/Itemlistcontainer";
 import Navbar from "./components/Navbar";
 import { HeroProvider } from "./contexts/HeroContext";
@@ -7,14 +8,21 @@ import { UserProvider } from "./contexts/UserContext";
 
 function App() {
   return (
-    <>
-      <UserProvider>
-        <HeroProvider>
+    <UserProvider>
+      <HeroProvider>
+        <BrowserRouter>
           <Navbar />
-          <Itemlistcontainer />
-        </HeroProvider>
-      </UserProvider>
-    </>
+          <Switch>
+            {/* <Route path="/item/:id">
+              <ItemDetail />
+            </Route> */}
+            <Route path="/" exact>
+              <Itemlistcontainer />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </HeroProvider>
+    </UserProvider>
 
   );
 }

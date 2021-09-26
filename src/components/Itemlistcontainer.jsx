@@ -31,13 +31,7 @@ const getHero = async (name) => {
             <div className="row">
             <SearchBar getHero={getHero} />
             {hero.map(hero => { return <CardHero hero={hero} key={hero.id} /> })}
-                {/* { hero.map(hero => (
-                    <div className="col-md-3" key={hero.id}>
-                        <CardHero hero={hero}/>
-                    </div>
-                ))} */}
-
-               {/*  <CardHero hero={hero}/> */}
+               
             </div>
             
         </div>
