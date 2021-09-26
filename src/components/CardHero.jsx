@@ -6,10 +6,7 @@ import "../css/cardhero.css"
 const CardHero = ({ hero }) => {
     const { toggleAddedHeroToUser, user } = useContext(UserContext);
 
-    const imgStyles = {
-        height: "260px",
-        objectFit: "cover",
-    }
+  
     console.log("card")
     const isAdded = user?.heroesAdded?.includes(hero.id);
     return (
@@ -28,7 +25,7 @@ const CardHero = ({ hero }) => {
                     </figcaption>
                 </figure>
                 
-                <Link to={`/item/${hero.id}`}> <button className="btn btn-dark m-2">+ Info</button></Link>
+                <Link to={`/item/${hero.id}`}> <button className="btn btn-dark m-2 ">+ Info</button></Link>
                 {
                     user?.id &&
                     <button onClick={() => toggleAddedHeroToUser(hero.id)} className={`btn ${isAdded ? "btn-outline-primary" : "btn-success"}`} >{`${isAdded ? "Agregado" : "Agregar"} `}</button>
