@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ItemDetail from "./components/ItemDetail";
 import Itemlistcontainer from "./components/Itemlistcontainer";
 import Navbar from "./components/Navbar";
 import { HeroProvider } from "./contexts/HeroContext";
@@ -13,9 +14,9 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Switch>
-            {/* <Route path="/item/:id">
+            <Route path="/item/:id">
               <ItemDetail />
-            </Route> */}
+            </Route>
             <Route path="/" exact>
               <Itemlistcontainer />
             </Route>

@@ -6,13 +6,13 @@ import "../css/cardhero.css"
 const CardHero = ({ hero }) => {
     const { toggleAddedHeroToUser, user } = useContext(UserContext);
 
-  
+
     console.log("card")
     const isAdded = user?.heroesAdded?.includes(hero.id);
     return (
 
         <div className="card col-lg-3 col-md-4 m-auto ">
-            {/* <img src={hero.image.url} alt={hero.name} className="card-img-top" style={imgStyles} /> */}
+
             <div className="card-body">
                 <h4 className="text-center">{hero.name}</h4>
 
@@ -21,10 +21,10 @@ const CardHero = ({ hero }) => {
                     <figcaption className="col-md-3">
                         <h3>{hero.name}</h3>
                         <h5>Alineación: <span>{hero.biography.alignment}</span></h5>
-                        <p>{hero.work.occupation}</p>{/* <link href="#" class="read-more">Read More</link> */}
+                        <p>{hero.work.occupation}</p>
                     </figcaption>
                 </figure>
-                
+
                 <Link to={`/item/${hero.id}`}> <button className="btn btn-dark m-2 ">+ Info</button></Link>
                 {
                     user?.id &&
