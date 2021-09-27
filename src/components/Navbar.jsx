@@ -9,11 +9,12 @@ const NavBar = () => {
 
     const { user, login, logout } = useContext(UserContext);
 
+
     return (
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="mb-4">
             <Container>
-               <Link to="/"> <Navbar.Brand >{user ? `Hola ${user.name}` : "Bienvenid@s"}
+               <Link to="/" > <Navbar.Brand >{user ? `Hola ${user.name}` : "Bienvenid@s"}
                 </Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0">

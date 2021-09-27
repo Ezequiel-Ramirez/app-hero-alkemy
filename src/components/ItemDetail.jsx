@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
 import HeroContext from '../contexts/HeroContext';
@@ -13,15 +13,12 @@ const ItemDetail = () => {
     const isAdded = user?.heroesAdded?.includes(item.id);
     console.log(idItem);
 
-    const getItem = async (id) => {
+    const getItem = useCallback(async (id) => {
         const url = "https://www.superheroapi.com/api/105694171870518/" + id;
         const res = await fetch(url);
         const newHero = await res.json();
         setItem(newHero);
-        console.log(newHero);
-        console.log(item)
-
-    }
+    },[])
     /*  const getItem =  ((id) =>{
          fetch("https://www.superheroapi.com/api/105694171870518/" + id)
          .then((respuesta) => respuesta.json())
@@ -38,9 +35,7 @@ const ItemDetail = () => {
 
     useEffect(() => {
         getItem(params.id);
-
-
-    }, [params.id])
+    }, [getItem, params.id])
 
     return (
         <div className="container">
