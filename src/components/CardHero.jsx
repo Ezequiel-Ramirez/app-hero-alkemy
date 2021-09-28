@@ -13,10 +13,10 @@ const CardHero = ({ hero }) => {
     
     return (
 
-        <div className="card col-lg-3 col-md-4 mt-2  m-auto  ">
+        <div className="card col-lg-3 col-md-4 mt-2  m-auto ">
 
-            <div className="card-body">
-                <h4 className="text-center">{hero.name}</h4>
+            <div className="card-body ">
+                <h4 className="text-center text-dark">{hero.name}</h4>
 
                 <figure className="snip1455 m-auto">
                     <img src={hero.image.url} alt={hero.name} />
@@ -28,10 +28,10 @@ const CardHero = ({ hero }) => {
                     </figcaption>
                 </figure>
 
-                <Link to={`/item/${hero.id}`}> <button className="btn btn-dark m-2 " onClick={()=>setIdItem(hero.id)}>+ Info</button></Link>
+                <Link to={`/item/${hero.id}`}> <button className="btn btn-outline-dark m-2  " onClick={()=>setIdItem(hero.id)}>+ Info</button></Link>
                 {
                     user?.id &&
-                    <button onClick={() => toggleAddedHeroToUser(hero)} className={`btn ${isAdded(hero) ? "btn-danger" : "btn-success"}`} >{`${isAdded(hero) ? "Eliminar" : "Agregar"} `}</button>
+                    <button onClick={() => toggleAddedHeroToUser(hero)} className={`btn  ${isAdded(hero) ? "btn-danger" : "btn-success"}`} >{`${isAdded(hero) ? "Eliminar" : "Agregar"} `}</button>
                 }
 
             </div>

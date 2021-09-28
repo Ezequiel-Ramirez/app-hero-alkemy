@@ -1,0 +1,16 @@
+.txtHeader{
+    background-color: rgba(41, 40, 40, 0.699);
+    color: azure;
+}
+.imagenCard{
+    border: 3px solid azure;
+    border-radius: 10px;
+}
+.txtTitulo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.txtTitulo span{
+    font-size: 1.2rem;
+   
+}

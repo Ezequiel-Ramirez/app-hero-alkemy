@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
 import HeroContext from '../contexts/HeroContext';
 import UserContext from '../contexts/UserContext';
+import "../css/itemdetail.css"
 
 const ItemDetail = () => {
     const { toggleAddedHeroToUser, user,isAdded } = useContext(UserContext);
@@ -38,21 +39,21 @@ const ItemDetail = () => {
     }, [getItem, params.id])
 
     return (
-        <div className="container">
+        <div className="container txtHeader">
             <div className="row ">
                 <div className="col col-md-6">
-                    <img className="h-75" src={item.image?.url} alt={item.name} />
+                    <img className="h-75 imagenCard" src={item.image?.url} alt={item.name} />
                 </div>
                 <div className="col col-md-6">
-                    <h1 className="text-center text-danger fw-bold">{item.name}</h1>
+                    <h1 className="text-center text-light  fw-bold">{item.name}</h1>
                     <h3 className="text-center text-warning fw-bold">{item.biography?.alignment}</h3>
-                    <p>Gender: <span>{item.appearance?.gender}</span></p>
-                    <p>Height: <span>{item.appearance?.height[1]}</span></p>
-                    <p>Weight: <span>{item.appearance?.weight[1]}</span></p>
-                    <p>Aliases: <span>{item.biography?.aliases.join()}</span></p>
-                    <p>Eyes Color: <span>{item.appearance?.["eye-color"]}</span></p>
-                    <p>Hair Color: <span>{item.appearance?.["hair-color"]}</span></p>
-                    <p>Work Base: <span>{item.work?.base}</span></p>
+                    <p className="txtTitulo">Gender: <span>{item.appearance?.gender}</span></p>
+                    <p className="txtTitulo">Height: <span>{item.appearance?.height[1]}</span></p>
+                    <p className="txtTitulo">Weight: <span>{item.appearance?.weight[1]}</span></p>
+                    <p className="txtTitulo">Aliases: <span>{item.biography?.aliases.join()}</span></p>
+                    <p className="txtTitulo">Eyes Color: <span>{item.appearance?.["eye-color"]}</span></p>
+                    <p className="txtTitulo">Hair Color: <span>{item.appearance?.["hair-color"]}</span></p>
+                    <p className="txtTitulo">Work Base: <span>{item.work?.base}</span></p>
                     <Link to={"/"}> <button className="btn btn-dark m-2 " >Volver</button></Link>
                     {
                     user?.id &&
