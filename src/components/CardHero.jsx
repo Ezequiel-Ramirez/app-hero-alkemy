@@ -13,7 +13,7 @@ const CardHero = ({ hero }) => {
     
     return (
 
-        <div className="card col-lg-3 col-md-4 m-auto ">
+        <div className="card col-lg-3 col-md-4 mt-2  m-auto  ">
 
             <div className="card-body">
                 <h4 className="text-center">{hero.name}</h4>

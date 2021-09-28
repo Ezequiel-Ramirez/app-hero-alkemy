@@ -1,13 +1,13 @@
 import { useContext } from 'react'
 import { FormControl, InputGroup, Button } from 'react-bootstrap';
 import HeroContext from '../contexts/HeroContext'
-/* import getHero from '../helpers/getHero'; */
+import "../css/searchbar.css";
 
 const SearchBar = () => {
     const { text, setText, getHero } = useContext(HeroContext);
 
     return (
-        <div className="container">
+        <div className="container ">
             <InputGroup className="mb-3 w-75 m-auto">
                 <FormControl
                     placeholder="Ingrese su nombre"
@@ -17,7 +17,7 @@ const SearchBar = () => {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />
-                <Button onClick={() => getHero(text)} variant="outline-secondary" id="button-addon2">
+                <Button className="btnSearch" onClick={() => getHero(text)} variant="outline-secondary" id="button-addon2">
                     Buscar
                 </Button>
             </InputGroup>

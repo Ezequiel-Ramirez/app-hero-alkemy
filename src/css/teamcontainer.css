@@ -1,0 +1,9 @@
+.txtHeader{
+    background-color: rgba(41, 40, 40, 0.699);
+    color: azure;
+}
+.btnBack{
+    color: white;
+    text-decoration: none;
+    border-color: white;
+}

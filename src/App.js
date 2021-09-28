@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import TeamContainer from "./components/TeamContainer";
 import { HeroProvider } from "./contexts/HeroContext";
 import { UserProvider } from "./contexts/UserContext";
+import "./css/style.css"
 
 
 
