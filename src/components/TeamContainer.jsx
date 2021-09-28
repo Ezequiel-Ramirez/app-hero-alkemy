@@ -17,7 +17,7 @@ const TeamContainer = () => {
 
             {user?.heroesAdded.length > 0
                 ? <div className="container txtHeader" >
-                <h1 className="text-center p-5 ">Éste es tu equipo</h1>
+                <h1 className="text-center p-5 ">Éste es tu equipo:</h1>
                     <div className="row">
                         <Link to="/"><button className="btn btn-success btnBack d-block m-auto ">Seguir Buscando</button></Link>
                         {user?.heroesAdded.map(hero => { return <CardHero hero={hero} key={hero.id} /> })}
