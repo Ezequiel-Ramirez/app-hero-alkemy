@@ -45,6 +45,7 @@ const ItemDetail = () => {
                 </div>
                 <div className="col col-md-6">
                     <h1 className="text-center text-danger fw-bold">{item.name}</h1>
+                    <h3 className="text-center text-warning fw-bold">{item.biography?.alignment}</h3>
                     <p>Gender: <span>{item.appearance?.gender}</span></p>
                     <p>Height: <span>{item.appearance?.height[1]}</span></p>
                     <p>Weight: <span>{item.appearance?.weight[1]}</span></p>

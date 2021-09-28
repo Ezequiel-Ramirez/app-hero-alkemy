@@ -5,8 +5,6 @@ import HeroContext from '../contexts/HeroContext'
 
 const SearchBar = ({ getHero }) => {
     const { text, setText } = useContext(HeroContext);
-    console.log("search")
-
 
     return (
         <div className="container">

@@ -2,12 +2,14 @@ import {createContext, useState} from 'react';
 
 const UserContext = createContext();
 
-const initialUser = { id: 1, name: "Miguel", heroesAdded: [1,2]}
+const initialUser = { id: 1, name: "Miguel", heroesAdded: []}
 
 
 const UserProvider = ( {children}) => {
 
     const [user, setUser] = useState(initialUser);
+    
+    
 
     const login = () =>{
         setUser(initialUser);
@@ -18,7 +20,7 @@ const UserProvider = ( {children}) => {
     const toggleAddedHeroToUser = (heroId) =>{
         const isAdded = user.heroesAdded.includes(heroId);
         const heroesAdded = isAdded
-        ? user.heroesAdded.filter(favHero => favHero !== heroId) //delete
+        ? user.heroesAdded.filter(favHero => favHero !== heroId) //delete 
         :[...user.heroesAdded, heroId] //add
         setUser({...user, heroesAdded })
     }
