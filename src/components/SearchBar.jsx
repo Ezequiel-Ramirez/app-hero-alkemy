@@ -3,8 +3,8 @@ import { FormControl, InputGroup, Button } from 'react-bootstrap';
 import HeroContext from '../contexts/HeroContext'
 /* import getHero from '../helpers/getHero'; */
 
-const SearchBar = ({ getHero }) => {
-    const { text, setText } = useContext(HeroContext);
+const SearchBar = () => {
+    const { text, setText, getHero } = useContext(HeroContext);
 
     return (
         <div className="container">

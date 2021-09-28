@@ -5,12 +5,12 @@ import HeroContext from '../contexts/HeroContext';
 import UserContext from '../contexts/UserContext';
 
 const ItemDetail = () => {
-    const { toggleAddedHeroToUser, user } = useContext(UserContext);
+    const { toggleAddedHeroToUser, user,isAdded } = useContext(UserContext);
     const { idItem } = useContext(HeroContext);
     const [item, setItem] = useState([]);
     const params = useParams();
 
-    const isAdded = user?.heroesAdded?.includes(item.id);
+ 
     console.log(idItem);
 
     const getItem = useCallback(async (id) => {
@@ -56,7 +56,7 @@ const ItemDetail = () => {
                     <Link to={"/"}> <button className="btn btn-dark m-2 " >Volver</button></Link>
                     {
                     user?.id &&
-                    <button onClick={() => toggleAddedHeroToUser(item.id)} className={`btn ${isAdded ? "btn-outline-primary" : "btn-success"}`} >{`${isAdded ? "Agregado" : "Agregar"} `}</button>
+                    <button onClick={() => toggleAddedHeroToUser(item)} className={`btn ${isAdded(item) ? "btn-danger" : "btn-success"}`} >{`${isAdded(item) ? "Eliminar" : "Agregar"} `}</button>
                 }
                 </div>
 
