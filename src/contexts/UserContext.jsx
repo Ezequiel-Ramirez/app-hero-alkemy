@@ -8,7 +8,7 @@ const initialUser = { id: 1, name: "Alkemy", heroesAdded: []}
 const UserProvider = ( {children}) => {
 
     const [user, setUser] = useState(initialUser);
-    
+    const {heroesAdded} = user;
     
 
     const login = () =>{

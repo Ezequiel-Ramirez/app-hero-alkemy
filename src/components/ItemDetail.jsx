@@ -47,13 +47,16 @@ const ItemDetail = () => {
                 <div className="col col-md-6">
                     <h1 className="text-center text-light  fw-bold">{item.name}</h1>
                     <h3 className="text-center text-warning fw-bold">{item.biography?.alignment}</h3>
-                    <p className="txtTitulo">Gender: <span>{item.appearance?.gender}</span></p>
                     <p className="txtTitulo">Height: <span>{item.appearance?.height[1]}</span></p>
                     <p className="txtTitulo">Weight: <span>{item.appearance?.weight[1]}</span></p>
-                    <p className="txtTitulo">Aliases: <span>{item.biography?.aliases.join()}</span></p>
                     <p className="txtTitulo">Eyes Color: <span>{item.appearance?.["eye-color"]}</span></p>
                     <p className="txtTitulo">Hair Color: <span>{item.appearance?.["hair-color"]}</span></p>
-                    <p className="txtTitulo">Work Base: <span>{item.work?.base}</span></p>
+                    <p className="txtTitulo">Combat: <span>{item.powerstats?.combat}</span></p>
+                    <p className="txtTitulo">Durability: <span>{item.powerstats?.durability}</span></p>
+                    <p className="txtTitulo">Intelligence: <span>{item.powerstats?.intelligence}</span></p>
+                    <p className="txtTitulo">Power: <span>{item.powerstats?.power}</span></p>
+                    <p className="txtTitulo">Speed: <span>{item.powerstats?.speed}</span></p>
+                    <p className="txtTitulo">Strength: <span>{item.powerstats?.strength}</span></p>
                     <Link to={"/"}> <button className="btn btn-dark m-2 " >Volver</button></Link>
                     {
                     user?.id &&
