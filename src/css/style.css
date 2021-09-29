@@ -1,9 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     padding: 0;
     margin: 0;
+    
     box-sizing: border-box;
     background-image: url(../img/superheroes-marvel.jpg);
+    background-color: red;
     background-size: cover;
     background-repeat: no-repeat;
     
+}
+@media all and (max-width: 720px){
+    body{
+        height:  100vh;
+
+    }
 }
