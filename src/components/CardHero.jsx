@@ -5,7 +5,7 @@ import HeroContext from '../contexts/HeroContext'
 import "../css/cardhero.css"
 
 const CardHero = ({ hero }) => {
-    const { toggleAddedHeroToUser, user, isAdded } = useContext(UserContext);
+    const { toggleAddedHeroToUser,  user, isAdded, tercerFuncion } = useContext(UserContext);
     const { setIdItem} = useContext(HeroContext);
 
     console.log("card")
@@ -31,7 +31,11 @@ const CardHero = ({ hero }) => {
                 <Link to={`/item/${hero.id}`}> <button className="btn btn-outline-dark m-2  " onClick={()=>setIdItem(hero.id)}>+ Info</button></Link>
                 {
                     user?.id &&
-                    <button onClick={() => toggleAddedHeroToUser(hero)} className={`btn  ${isAdded(hero) ? "btn-danger" : "btn-success"}`} >{`${isAdded(hero) ? "Eliminar" : "Agregar"} `}</button>
+                 
+                   
+                    <button onClick={() => tercerFuncion(hero)} className={`btn  ${isAdded(hero) ? "btn-danger" : "btn-success"}`} >{`${isAdded(hero) ? "Eliminar" : "Agregar"} `}</button>
+                   
+                    
                 }
 
             </div>
