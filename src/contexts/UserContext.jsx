@@ -15,6 +15,9 @@ const UserProvider = ({ children }) => {
   const [combatTeam, setCombatTeam] = useState("");
   const [heightTeam, setHeightTeam] = useState("");
   const [weightTeam, setWeightTeam] = useState("");
+  const [goodCount, setGoodCount] = useState(0);
+  const [badCount, setBadCount] = useState(0);
+  const [errorAdd, setErrorAdd] = useState("");
 
 
   const calculatePowerstats =()=> {
@@ -82,7 +85,8 @@ const UserProvider = ({ children }) => {
     setUser({ ...user, heroesAdded });
   }
 const tercerFuncion = (hero) =>{
-  
+ 
+ 
   toggleAddedHeroToUser(hero);
   calculatePowerstats();
 }
