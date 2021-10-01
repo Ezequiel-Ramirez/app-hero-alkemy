@@ -7,65 +7,63 @@ const initialUser = { id: 1, name: "Alkemy", heroesAdded: [] }
 const UserProvider = ({ children }) => {
 
   const [user, setUser] = useState(initialUser);
-  const [totalStats, setTotalStats] = useState([]);
+  const [intelligenceTeam, setIntelligenceTeam] = useState("");
+  const [strengthTeam, setStrengthTeam] = useState("");
+  const [speedTeam, setSpeedTeam] = useState("");
+  const [durabilityTeam, setDurabilityTeam] = useState("");
+  const [powerTeam, setPowerTeam] = useState("");
+  const [combatTeam, setCombatTeam] = useState("");
+  const [heightTeam, setHeightTeam] = useState("");
+  const [weightTeam, setWeightTeam] = useState("");
 
 
-
-  const handleStats = (hero) => {
-    const isHero = user?.heroesAdded?.find((item) => item.id === hero.id)
-    console.log("encontrado")
-    console.log(isHero)
-    if (isHero === undefined) {
+  const calculatePowerstats =()=> {
+    let intelligence = 0;
+    let strength = 0;
+    let speed = 0;
+    let durability = 0;
+    let power = 0;
+    let combat = 0
+    let height = 0;
+    let weight = 0;
+    for(const hero of user.heroesAdded) {
+      if(isNaN(parseInt(hero?.powerstats?.intelligence))) {
+      } else {
+        intelligence += parseInt(hero?.powerstats?.intelligence)
+      }
+      if(isNaN(parseInt(hero?.powerstats?.speed))) {} else {
+        speed += parseInt(hero?.powerstats?.speed)
+      }
+      if(isNaN(parseInt(hero?.powerstats?.durability))) {}else {
+        durability += parseInt(hero?.powerstats?.durability)
+      }
+      if(isNaN(parseInt(hero?.powerstats?.strength))) {} else {
+        strength += parseInt(hero?.powerstats?.strength)
+      }
+      if(isNaN(parseInt(hero?.powerstats?.power))) {} else {
+        power += parseInt(hero?.powerstats?.power)
+      }
+      if(isNaN(parseInt(hero?.powerstats?.combat))) {} else {
+        combat += parseInt(hero?.powerstats?.combat)
+      }
      
-      const handleCombat =
-        parseInt(totalStats.combat) + parseInt(hero?.powerstats?.combat);
-      const handleDurability =
-        parseInt(totalStats.durability) + parseInt(hero?.durability);
-      const handleIntelligence =
-        parseInt(totalStats.intelligence) + parseInt(hero.powerstats?.intelligence);
-      const handlePower = parseInt(totalStats.power) + parseInt(hero?.powerstats?.power);
-      const handleSpeed = parseInt(totalStats.speed) + parseInt(hero?.powerstats?.speed);
-      const handleStrength =
-        parseInt(totalStats.strength) + parseInt(hero?.powerstats?.strength);
-      const newStats = {
-        combat: handleCombat.toString(),
-        durability: handleDurability.toString(),
-        intelligence: handleIntelligence.toString(),
-        power: handlePower.toString(),
-        speed: handleSpeed.toString(),
-        strength: handleStrength.toString(),
-      };
-      setTotalStats(newStats);
-      console.log(totalStats)
+        height = parseInt((height + parseInt(hero?.appearance?.height[1])));
       
-    } else {
-      console.log("sino")
-      console.log(isHero)
-   
-      const newCombat =
-        parseInt(totalStats.combat) - parseInt(hero.powerstats?.combat);
-      const newDurability =
-        parseInt(totalStats.durability) - parseInt(hero.powerstats?.durability);
-      const newIntelligence =
-        parseInt(totalStats.intelligence) -
-        parseInt(hero.powerstats?.intelligence);
-      const newPower =
-        parseInt(totalStats.power) - parseInt(hero.powerstats?.power);
-      const newSpeed =
-        parseInt(totalStats.speed) - parseInt(hero.powerstats?.speed);
-      const newStrength =
-        parseInt(totalStats.strength) - parseInt(hero.powerstats?.strength);
-      const newStats = {
-        combat: newCombat.toString(),
-        durability: newDurability.toString(),
-        intelligence: newIntelligence.toString(),
-        power: newPower.toString(),
-        speed: newSpeed.toString(),
-        strength: newStrength.toString(),
-      };
-      setTotalStats(newStats);
+     
+        weight = parseInt((weight + hero?.appearance?.weight[1]) );
+      
     }
-  };
+    setIntelligenceTeam(intelligence);
+    setStrengthTeam(strength);
+    setSpeedTeam(speed);
+    setDurabilityTeam(durability);
+    setPowerTeam(power);
+    setCombatTeam(combat);
+    setHeightTeam(height/user.heroesAdded.length);
+    setWeightTeam(weight/user.heroesAdded.length);
+    
+  }
+
 
 
 
@@ -82,29 +80,25 @@ const UserProvider = ({ children }) => {
       ? user.heroesAdded.filter(favHero => favHero.id !== hero.id)//delete 
       : [...user.heroesAdded, hero] //add
     setUser({ ...user, heroesAdded });
-    handleStats(hero);
-    console.log(totalStats)
   }
 const tercerFuncion = (hero) =>{
+  
   toggleAddedHeroToUser(hero);
-  handleStats(hero);
-  console.log(totalStats);
+  calculatePowerstats();
 }
   //funcion para detectar si se encuentra el heroe en el team y setear el boton de agregar/eliminar
   const isAdded = (hero) => {
-    let isInTeam = user?.heroesAdded?.find((item) => item.id === hero.id)
-   
+    let isInTeam = user?.heroesAdded?.find((item) => item.id === hero.id)  
    
     if (isInTeam) {
       user?.heroesAdded?.filter(favHero => favHero.id !== hero.id)
       return true
     } else {
-
       return false
     }
   }
 
-  const data = { user, login, logout, toggleAddedHeroToUser, isAdded, tercerFuncion }
+  const data = { user, login, logout, toggleAddedHeroToUser, isAdded, tercerFuncion, intelligenceTeam, strengthTeam, speedTeam, durabilityTeam, powerTeam, combatTeam, heightTeam, weightTeam, calculatePowerstats}
   return (
     <UserContext.Provider value={data}>
       {children}

@@ -5,7 +5,7 @@ import HeroContext from '../contexts/HeroContext'
 import "../css/cardhero.css"
 
 const CardHero = ({ hero }) => {
-    const { toggleAddedHeroToUser,  user, isAdded, tercerFuncion } = useContext(UserContext);
+    const {  user, isAdded, tercerFuncion } = useContext(UserContext);
     const { setIdItem} = useContext(HeroContext);
 
     console.log("card")
