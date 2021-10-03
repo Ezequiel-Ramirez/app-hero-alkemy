@@ -8,9 +8,6 @@ const CardHero = ({ hero }) => {
     const {  user, isAdded, tercerFuncion } = useContext(UserContext);
     const { setIdItem} = useContext(HeroContext);
 
-    console.log("card")
-    console.log(user);
-    
     return (
 
         <div className="card col-lg-3 col-md-4 mt-2  m-auto ">

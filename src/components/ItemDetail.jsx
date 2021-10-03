@@ -6,12 +6,12 @@ import UserContext from '../contexts/UserContext';
 import "../css/itemdetail.css"
 
 const ItemDetail = () => {
-    const { toggleAddedHeroToUser, user,isAdded } = useContext(UserContext);
+    const { toggleAddedHeroToUser, user, isAdded } = useContext(UserContext);
     const { idItem } = useContext(HeroContext);
     const [item, setItem] = useState([]);
     const params = useParams();
 
- 
+
     console.log(idItem);
 
     const getItem = useCallback(async (id) => {
@@ -19,20 +19,8 @@ const ItemDetail = () => {
         const res = await fetch(url);
         const newHero = await res.json();
         setItem(newHero);
-    },[])
-    /*  const getItem =  ((id) =>{
-         fetch("https://www.superheroapi.com/api/105694171870518/" + id)
-         .then((respuesta) => respuesta.json())
-         .then((transformacion)=>setItem(transformacion))
-     }) */
+    }, [])
 
-    /*  const getItem = async (id) => {
-         const url = "https://www.superheroapi.com/api/105694171870518/" + id;
-         const res = await fetch(url);
-         const newHero = await res.json();
-         const data = newHero;
-         return data;
-     } */
 
     useEffect(() => {
         getItem(params.id);
@@ -59,9 +47,9 @@ const ItemDetail = () => {
                     <p className="txtTitulo">Strength: <span>{item.powerstats?.strength}</span></p>
                     <Link to={"/"}> <button className="btn btn-dark m-2 " >Volver</button></Link>
                     {
-                    user?.id &&
-                    <button onClick={() => toggleAddedHeroToUser(item)} className={`btn ${isAdded(item) ? "btn-danger" : "btn-success"}`} >{`${isAdded(item) ? "Eliminar" : "Agregar"} `}</button>
-                }
+                        user?.id &&
+                        <button onClick={() => toggleAddedHeroToUser(item)} className={`btn ${isAdded(item) ? "btn-danger" : "btn-success"}`} >{`${isAdded(item) ? "Eliminar" : "Agregar"} `}</button>
+                    }
                 </div>
 
 
